@@ -1,10 +1,10 @@
 import React from 'react';
 
 const ThumbnailPicture = props => (
-  <div className="div-description-user-thumbnail-picture">
-    <img className="div-description-user-thumbnail_url" src={props.user && props.user.thumbnail_url}></img>
+  <div name={props.name} className="div-description-user-thumbnail-picture">
+    <img className="div-description-user-thumbnail_url" src={props.name && props.name.user_thumbnail_url}></img>
     <div className="div-description-user-first-name">
-      {props.user && props.user.first_name}
+      {props.name && props.name.user_first_name}
     </div>
   </div>
 );

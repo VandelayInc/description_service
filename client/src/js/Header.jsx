@@ -10,7 +10,7 @@ const Header = (props) => (
         <div className="div-description-city">{props.desc && props.desc.city}</div>
       </div>
       <div className="div-description-thumbnail-pic">
-        <ThumbnailPicture user={props.desc && props.desc.user && props.desc.user.user}></ThumbnailPicture>
+        <ThumbnailPicture name={props.desc} user={props.desc && props.desc.user && props.desc.user.user}></ThumbnailPicture>
       </div>
     </div>
     <div className="div-description-characteristics-block">
@@ -19,7 +19,7 @@ const Header = (props) => (
           <i className="fas fa-users"></i>
         </div>
         <div className="div-description-characteristics-table-cell">
-          <div className="div-description-guests">{props.desc && props.desc.person && (props.desc.person_capacity === 1 ? '1 guest' : props.desc.person_capacity.toString() + ' guests')}</div>
+          <div className="div-description-guests">{props.desc && (props.desc.person_capacity === 0 ? 'No Space Currently' : props.desc.person_capacity === 1 ? '1 Person' : `${props.desc.person_capacity} People`)}</div>
         </div>
       </div>
     </div>
@@ -29,7 +29,7 @@ const Header = (props) => (
           <i className="fas fa-home"></i>
         </div>
         <div className="div-description-characteristics-table-cell">
-          <div className="div-description-bedrooms">{props.desc && (props.desc.bedrooms === 0 ? 'Studio' : props.desc.bedrooms === 1 ? '1 Bedroom' : `${props.desc.bedrooms} Bedrooms)`)}</div>
+          <div className="div-description-bedrooms">{props.desc && (props.desc.bedrooms === 0 ? 'Studio' : props.desc.bedrooms === 1 ? '1 Bedroom' : `${props.desc.bedrooms} Bedrooms`)}</div>
         </div>
       </div>
     </div>
