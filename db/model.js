@@ -56,12 +56,9 @@ function findOne(roomId) {
     .exec();
 }
 
-// insertOne inserts a story into the db
-// function insertOne(stress) {
-//   return DescriptionModel.create(stress);
-// }
+
+exports.findOne = findOne;
+exports.connection = connection;
 
 exports.DescriptionModel = DescriptionModel;
 // exports.insertOne = insertOne;
-exports.findOne = findOne;
-exports.connection = connection;
