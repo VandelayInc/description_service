@@ -2,7 +2,6 @@ const express = require('express');
 const db = require('../db/model.js');
 const router = express.Router();
 const mongoose = require('mongoose');
-mongoose.connect(`mongodb://localhost/sdc`);
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 import AppDescription from '../client/src/js/AppDescription.jsx';
@@ -26,7 +25,7 @@ router
     console.log('reqparams', req.params.roomid)
     db.DescriptionModel.find({id:req.params.roomid})
     .then((data) => {
-      console.log('data', data)
+      console.log('dataNORMAL ROUTER', data)
       res.json(data[0])
     })
   })

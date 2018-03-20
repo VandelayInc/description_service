@@ -4,7 +4,6 @@ const db = require('../db/model.js');
 // const db = require('../db/modelMySQL.js');
 const router = express.Router();
 const mongoose = require('mongoose');
-mongoose.connect(`mongodb://localhost/sdc`);
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 import AppDescription from '../client/src/js/AppDescription.jsx';
@@ -13,9 +12,9 @@ router
 // vVv uncomment this to use Mongo vVv
   .get('/:roomid/description', (req, res) => {
     console.log('reqparams', req.params.roomid)
-    db.DescriptionModel.find({id:req.params.roomid})
+    db.DescriptionModel.find({_id:req.params.roomid})
     .then((data) => {
-      console.log('data', data)
+      console.log('dataSQL ROUTER', data)
       res.json(data[0])
     })
   })
@@ -30,22 +29,20 @@ router
   //     res.send(rows[0])
   //   })
   // })
-  // connection.find({id:1111}).then((results) => {
-  //   console.log('results')
-  // })
-router
-  .route('/:roomid/description/ssr')
-  .get((req, res, next) => {
-    db.findOne(+req.params.roomid)
-      .then(desc => res.send(renderToString(<AppDescription roomId={req.params.roomid} description={desc}/>)))
-      .catch(err => {
-        console.log('Error retrieving description for room ', req.params.roomid, ' from database');
-        res.sendStatus(404);
-      });
-  })
-  .options((req, res) => {
-    res.sendStatus(200);
-  });
+
+// router
+//   .route('/:roomid/description/ssr')
+//   .get((req, res, next) => {
+//     db.findOne(+req.params.roomid)
+//       .then(desc => res.send(renderToString(<AppDescription roomId={req.params.roomid} description={desc}/>)))
+//       .catch(err => {
+//         console.log('Error retrieving description for room ', req.params.roomid, ' from database');
+//         res.sendStatus(404);
+//       });
+//   })
+//   .options((req, res) => {
+//     res.sendStatus(200);
+//   });
 
 module.exports = router;
 
