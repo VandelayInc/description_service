@@ -1,5 +1,5 @@
 const express = require('express');
-const db = require('../db/model.js');
+// const db = require('../db/model.js');
 const router = express.Router();
 const mongoose = require('mongoose');
 import React from 'react';

@@ -1,7 +1,7 @@
 const express = require('express');
 //pick databases here, too
-const db = require('../db/model.js');
-// const db = require('../db/modelMySQL.js');
+// const db = require('../db/model.js');
+const db = require('../db/modelMySQL.js');
 const router = express.Router();
 const mongoose = require('mongoose');
 import React from 'react';
@@ -10,25 +10,37 @@ import AppDescription from '../client/src/js/AppDescription.jsx';
 
 router
 // vVv uncomment this to use Mongo vVv
-  .get('/:roomid/description', (req, res) => {
-    console.log('reqparams', req.params.roomid)
-    db.DescriptionModel.find({_id:req.params.roomid})
-    .then((data) => {
-      console.log('dataSQL ROUTER', data)
-      res.json(data[0])
-    })
-  })
+  // .get('/:roomid/description', (req, res) => {
+  //   console.log('reqparams', req.params.roomid)
+  //   db.DescriptionModel.find({_id:req.params.roomid})
+  //   .then((data) => {
+  //     console.log('dataSQL ROUTER', data)
+  //     res.json(data[0])
+  //   })
+  // })
 
 // vVv uncomment this to use SQL vVv
+  .get('/:roomid/description', (req, res) => {
+    let id = req.params.roomid
+    console.log('ROOM ID', id)
+    db.sequelize.query(`SELECT * FROM giantdata WHERE id = ${id}`)
+      .then(data => {
+        console.log(data[0])
+        res.send(data[0][0])
+      })
+  })
+
   // .get('/:roomid/description', (req, res) => {
   //   let id = req.params.roomid
   //   console.log('ROOM ID', id)
-  //   db.connection.query(`SELECT * FROM bigcopy WHERE id = ${id}`, (err, rows, fields) => {
+  //   db.connection.query(`SELECT * FROM giantdata WHERE id = ${id}`, (err, rows, fields) => {
   //     if (err) throw err
   //     console.log('query response, modelMYSql', rows[0])
   //     res.send(rows[0])
   //   })
   // })
+
+
 
 // router
 //   .route('/:roomid/description/ssr')
