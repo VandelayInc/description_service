@@ -30,11 +30,11 @@ var randomEntry = (id) => {
     var space = "space " + faker.lorem.words();
     var summary = "summary " + faker.lorem.words();
     var additional_house_rules =  "house rules " + faker.lorem.words();
-  return (`"${city}",${id},"${name}","${user_first_name}","${user_thumbnail_url}",${bathrooms},${bedrooms},${beds},"${cancellation_policy}",${person_capacity},"${property_type}","${room_type}","${room_type_category}","${access}","${amenities}",${amenities_ids},"${description}","${interaction}",${listing_security_deposit_native},"${notes}","${security_deposit_formatted}","${space}","${summary}","${additional_house_rules}"`);
+  return (`${city},${id},${name},${user_first_name},${user_thumbnail_url},${bathrooms},${bedrooms},${beds},${cancellation_policy},${person_capacity},${property_type},${room_type},${room_type_category},${access},${amenities},${amenities_ids},${description},${interaction},${listing_security_deposit_native},${notes},${security_deposit_formatted},${space},${summary},${additional_house_rules}`);
 };
 
 function writeChunk(writer){
-  var i = 1e7 + 1;
+  var i = 1e3 + 1;
   write();
   function write(){
     var ok = true;
@@ -46,8 +46,8 @@ function writeChunk(writer){
         writer.write(entry)
         var end = process.hrtime(start);
         console.log(`this process took ${end[0]} seconds`)
-      } else if (i === 1e7) {
-        writer.write(`city,_id,name,user_first_name,user_thumbnail_url,bathrooms,bedrooms,beds,cancellation_policy,person_capacity,property_type,room_type,room_type_category,access,amenities,amenities_ids,description,interaction,listing_security_deposit_native,notes,security_deposit_formatted,space,summary,additional_house_rules`)
+      } else if (i === 1e3) {
+        writer.write(`city,_id,name,user_first_name,user_thumbnail_url,bathrooms,bedrooms,beds,cancellation_policy,person_capacity,property_type,room_type,room_type_category,access,amenities,amenities_ids,description,interaction,listing_security_deposit_native,notes,security_deposit_formatted,space,summary,additional_house_rules,` + ' \n')
       } else {
         // see if we should continue or wait
         //don't do the callback, we're not done yet.

@@ -3,9 +3,10 @@ const Promise = require('bluebird');
 mongoose.Promise = require('bluebird');
 
 let database = "airbnb"
-let mongoServer = process.env.MONGO_SERVER || 'localhost';
-console.log('mongoServer', mongoServer);
+let mongoServer = process.env.MONGO_SERVER || '13.57.202.230';
 let mongoPort = process.env.MONGO_PORT || '27017';
+
+console.log('mongoServer', mongoServer);
 console.log(`mongodb://${mongoServer}:${mongoPort}/${database}`);
 let connection = mongoose.connect(`mongodb://${mongoServer}:${mongoPort}/${database}`);
 
