@@ -1,9 +1,9 @@
 config:
-  target: "http://localhost:3002/rooms"
+  target: "http://localhost:3002/api/rooms"
   processor: "./stress.js"
   phases:
-    - duration: 8
-      arrivalRate: 20
+    - duration: 30
+      arrivalRate: 30
 scenarios:
   - name: "arrive on the description page with id {{ id }}"
     flow:
