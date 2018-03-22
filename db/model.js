@@ -2,27 +2,18 @@ const mongoose = require('mongoose');
 const Promise = require('bluebird');
 mongoose.Promise = require('bluebird');
 
-let mongoServer = process.env.MONGO_SERVER || 'localhost';
-console.log('mongoServer', mongoServer);
+let database = "airbnb"
+let mongoServer = process.env.MONGO_SERVER || '13.57.202.230';
 let mongoPort = process.env.MONGO_PORT || '27017';
-console.log(`mongodb://${mongoServer}:${mongoPort}/sdc`);
-let connection = mongoose.connect(`mongodb://${mongoServer}:${mongoPort}/sdc`);
 
-// User schema
-const UserSchema = mongoose.Schema(
-  {
-    "first_name": String,
-    "has_profile_pic": Boolean,
-    "id": Number,
-    "languages": Array,
-    "thumbnail_url": String
-  }
-);
+console.log('mongoServer', mongoServer);
+console.log(`mongodb://${mongoServer}:${mongoPort}/${database}`);
+let connection = mongoose.connect(`mongodb://${mongoServer}:${mongoPort}/${database}`);
 
 const DescriptionSchema = mongoose.Schema(
   {
     "city": String,
-    "id": {type: Number, unique: true},
+    "_id": Number,
     "name": String,
     "user_first_name": String,
     "user_thumbnail_url": String,
@@ -47,7 +38,7 @@ const DescriptionSchema = mongoose.Schema(
   }
 );
 
-var DescriptionModel = mongoose.model('stress', DescriptionSchema);
+var DescriptionModel = mongoose.model('listing', DescriptionSchema);
 
 function findOne(roomId) {
   return DescriptionModel

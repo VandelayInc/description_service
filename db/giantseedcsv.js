@@ -1,12 +1,12 @@
 const faker = require('faker');
 const fs = require('fs');
 const file = fs.createWriteStream('./giantdata.csv')
-let start = process.hrtime();
+var start = process.hrtime();
 
-let getRandomInt = function(max){
+var getRandomInt = function(max){
   return Math.floor(Math.random() * Math.floor(max));
 }
-let randomEntry = (id) => {
+var randomEntry = (id) => {
     var city = faker.address.city();
     var name = "listing name " + faker.lorem.words();
     var user_first_name = faker.name.firstName();
@@ -30,24 +30,24 @@ let randomEntry = (id) => {
     var space = "space " + faker.lorem.words();
     var summary = "summary " + faker.lorem.words();
     var additional_house_rules =  "house rules " + faker.lorem.words();
-  return (`"${city}",${id},"${name}","${user_first_name}","${user_thumbnail_url}",${bathrooms},${bedrooms},${beds},"${cancellation_policy}",${person_capacity},"${property_type}","${room_type}","${room_type_category}","${access}","${amenities}",${amenities_ids},"${description}","${interaction}",${listing_security_deposit_native},"${notes}","${security_deposit_formatted}","${space}","${summary}","${additional_house_rules}"`);
+  return (`${city},${id},${name},${user_first_name},${user_thumbnail_url},${bathrooms},${bedrooms},${beds},${cancellation_policy},${person_capacity},${property_type},${room_type},${room_type_category},${access},${amenities},${amenities_ids},${description},${interaction},${listing_security_deposit_native},${notes},${security_deposit_formatted},${space},${summary},${additional_house_rules}`);
 };
 
 function writeChunk(writer){
-  let i = 1e7 + 1;
+  var i = 1e3 + 1;
   write();
   function write(){
-    let ok = true;
+    var ok = true;
     do {
       i--;
-      let entry = randomEntry(i)
+      var entry = randomEntry(i)
       if (i ===0){
         //last time
         writer.write(entry)
-        let end = process.hrtime(start);
+        var end = process.hrtime(start);
         console.log(`this process took ${end[0]} seconds`)
-      } else if (i === 1e7) {
-        writer.write(`city,id,name,user_first_name,user_thumbnail_url,bathrooms,bedrooms,beds,cancellation_policy,person_capacity,property_type,room_type,room_type_category,access,amenities,amenities_ids,description,interaction,listing_security_deposit_native,notes,security_deposit_formatted,space,summary,additional_house_rules`)
+      } else if (i === 1e3) {
+        writer.write(`city,_id,name,user_first_name,user_thumbnail_url,bathrooms,bedrooms,beds,cancellation_policy,person_capacity,property_type,room_type,room_type_category,access,amenities,amenities_ids,description,interaction,listing_security_deposit_native,notes,security_deposit_formatted,space,summary,additional_house_rules,` + ' \n')
       } else {
         // see if we should continue or wait
         //don't do the callback, we're not done yet.

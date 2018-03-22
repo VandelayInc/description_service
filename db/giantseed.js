@@ -1,15 +1,14 @@
 const faker = require('faker');
 const fs = require('fs');
 const file = fs.createWriteStream('./giantdata.json')
-let start = process.hrtime();
 
-let getRandomInt = function(max){
+var getRandomInt = function(max){
   return Math.floor(Math.random() * Math.floor(max));
 }
-let randomEntry = (id) => {
-  let entry = {
+var randomEntry = (id) => {
+  var entry = {
     "city": faker.address.city(),
-    "id": id,
+    "_id": id,
     "name": "listing name " + faker.lorem.words(),
     "user_first_name": faker.name.firstName(),
     "user_thumbnail_url": faker.image.avatar(),
@@ -37,20 +36,19 @@ let randomEntry = (id) => {
 };
 
 function writeChunk(writer){
-  let i = 1e7 + 1;
+  var i = 1e5 + 1;
   write();
   function write(){
-    let ok = true;
+    var ok = true;
     do {
       i--;
-      let entry = randomEntry(i)
+      var entry = randomEntry(i)
       if (i ===0){
         //last time
         writer.write(entry + ']')
-        let end = process.hrtime(start);
-        console.log(`this process took ${end[0]} seconds`)
-      } else if (i === 1e7) {
-        writer.write('[' + entry)
+        console.log(`done!`)
+      } else if (i === 1e5) {
+        writer.write('[' + entry + ', \n')
       } else {
         // see if we should continue or wait
         //don't do the callback, we're not done yet.
