@@ -4,12 +4,12 @@ const bodyParser = require('body-parser');
 const roomsRouter = require('./rooms-router.js');
 const apiRouter = require('./api-routerSQL.js');
 // const ssrRouter = require('./ssr-router.js');
-const morgan = require('morgan');
+// const morgan = require('morgan');
 const mongoose = require('mongoose');
 
 const app = express();
 
-app.use(morgan('dev'));
+// app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use((req, res, next) => {
