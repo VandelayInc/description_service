@@ -23,7 +23,6 @@ class AppDescription extends React.Component {
   getDescriptionForRoom(roomId) {
     axios.get(`/api/rooms/${roomId}/description`, { crossdomain: true })
       .then((desc) => {
-        console.log(desc)
         this.desc = {description: desc.data};
         this.setState({
           description: desc.data
