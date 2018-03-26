@@ -1,5 +1,5 @@
 config:
-  target: "http://localhost:3002/api/rooms"
+  target: "http://localhost:3000"
   processor: "./stress.js"
   phases:
     - duration: 30
@@ -10,6 +10,6 @@ scenarios:
       - loop: 
         - function: "generateRandomId"
         - get:
-            url: "/{{ id }}/description"
-        - log: "{{line}}{{line}}"
+            url: "/rooms/1111"
+            # log: "{{id}}"
         count: 120

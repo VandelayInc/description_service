@@ -1,9 +1,9 @@
 config:
-  target: "http://54.67.96.3:3002/api/rooms"
+  target: "http://loadbalancer-airbnb-descriptions-1059579574.us-west-1.elb.amazonaws.com/api/rooms"
   processor: "./stress.js"
   phases:
     - duration: 10
-      arrivalRate: 25
+      arrivalRate: 10
 scenarios:
   - name: "arrive on the description page with id {{ id }}"
     flow:
