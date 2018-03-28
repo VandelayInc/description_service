@@ -10,6 +10,6 @@ scenarios:
       - loop: 
         - function: "generateRandomId"
         - get:
-            url: "/rooms/1111"
-            # log: "{{id}}"
+            url: "/rooms/{{id}}"
+        - log: "{{id}}"
         count: 120
