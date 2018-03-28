@@ -2,22 +2,27 @@ import React from 'react';
 import axios from 'axios';
 import Description from './Description.jsx';
 import descriptionSample from '../../../db/data/description_sample.js';
-import '../../css/style.scss';
+// import '../../css/style.scss';
 
 class AppDescription extends React.Component {
   constructor(props) {
     super(props);
     this.desc = {description: props.description};
     this.state = {
-      roomId: props.roomId,
-      description: props.description
+      description: {}
     };
   }
 
   componentDidMount() {
-    if (this.props.roomId) {
-      this.getDescriptionForRoom(this.props.roomId);
-    }
+    // console.log(window.location.href.split('/')[4])
+    // this.setState({
+    //   roomId: window.location.href.split('/')[4] || '1111'
+    // })
+    // if (this.state.roomId) {
+    //   this.getDescriptionForRoom(this.state.roomId);
+    // }
+
+    this.getDescriptionForRoom(window.location.href.split('/')[4])
   }
 
   getDescriptionForRoom(roomId) {
