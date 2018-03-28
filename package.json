@@ -9,7 +9,7 @@
   },
   "scripts": {
     "seed-database": "node db/seed.js",
-    "build": "yarn build:client & yarn build:server",
+    "build": "yarn build:client",
     "build:server": "webpack -d --config ./webpack.server.config.js --watch",
     "build:client": "webpack -d --config ./webpack.client.config.js --watch",
     "start": "node ./dist/server",
