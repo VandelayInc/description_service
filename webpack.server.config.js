@@ -1,18 +1,13 @@
 const webpack = require('webpack');
 const nodeExternals = require('webpack-node-externals');
 const path = require('path');
-const paths = {
-  DIST: path.resolve(__dirname, 'public'),
-  SRC: path.resolve(__dirname, 'client/src'),
-  JS: path.resolve(__dirname, 'client/src/js'),
-};
-
 
 module.exports = {
-  entry: path.join(paths.SRC, 'server.js'),
+  entry: './server/server.js',
   output: {
-    path: paths.DIST,
-    filename: 'app-description.bundle-server.js',
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'server.js',
+    publicPath: '/'
   },
   target: 'node',
   externals: nodeExternals(),

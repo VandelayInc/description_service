@@ -11,7 +11,8 @@ import AppDescription from '../client/src/js/AppDescription.jsx';
 const redis = require('redis');
 
 // create a new redis client and connect to our local redis instance
-const client = redis.createClient();
+const client = redis.createClient(6379, "13.57.3.197");
+// const client = redis.createClient();
 
 // if an error occurs, print it to the console
 client.on('error', function (err) {
@@ -27,11 +28,13 @@ router
   var id = req.params.roomid;
   client.get(id, function(err, result){
     if (result){
+      console.log('pulled from redis')
       res.header('Access-Control-Allow-Origin', '*')
       .json(JSON.parse(result))
     } else {
       db.DescriptionModel.find({_id:id})
       .then((data) => {
+        console.log('didnt pull from redis')
         var dataString = JSON.stringify(data[0])
         client.setex(id, 60, dataString)
         res.header('Access-Control-Allow-Origin', '*')
