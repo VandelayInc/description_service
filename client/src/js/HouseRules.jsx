@@ -1,5 +1,6 @@
 import React from 'react';
-import { Glyphicon } from 'react-bootstrap';
+import reactBootstrap from 'react-bootstrap'
+
 
 function Rules(props) {
   return (
@@ -27,7 +28,7 @@ function Rules(props) {
       </div>
       <div className="div-description-hide-rules-fold">
         <p className="div-description-separator-margin">
-          <a className="a-description-fold" onClick={props.onClick}>Hide rules <Glyphicon glyph="chevron-up"/></a>
+          <a className="a-description-fold" onClick={props.onClick}>Hide rules </a>
         </p>
       </div>
     </div>
@@ -38,7 +39,7 @@ function RulesHidden(props) {
   return (
     <div className="div-description-read-rules-fold">
       <p className="div-description-separator-margin">
-        <a className="a-description-fold" onClick={props.onClick}>Read all rules <Glyphicon glyph="chevron-down"/></a>
+        <a className="a-description-fold" onClick={props.onClick}>Read all rules </a>
       </p>
     </div>
   );
