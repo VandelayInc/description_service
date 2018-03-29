@@ -11,5 +11,5 @@ scenarios:
         - function: "generateRandomId"
         - get:
             url: "/rooms/1111/description"
-        - log: "testing"
+        - log: "asf"
         count: 120
