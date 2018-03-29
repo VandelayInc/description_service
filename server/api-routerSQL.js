@@ -34,7 +34,6 @@ router
     } else {
       db.DescriptionModel.find({_id:id})
       .then((data) => {
-        console.log('didnt pull from redis')
         var dataString = JSON.stringify(data[0])
         client.setex(id, 60, dataString)
         res.header('Access-Control-Allow-Origin', '*')

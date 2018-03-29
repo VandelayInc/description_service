@@ -1,5 +1,6 @@
 // We are using node's native package 'path'
 // https://nodejs.org/api/path.html
+const webpack = require('webpack');
 const path = require('path');
 
 // const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -15,6 +16,13 @@ const paths = {
 // Webpack configuration
 const client = {
   entry: path.join(paths.SRC, 'client.js'),
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: `'production'`
+      }
+    })
+  ],
   output: {
     path: paths.DIST,
     filename: 'app-description.bundle.js',
@@ -79,6 +87,13 @@ const client = {
 const server = {
   entry: path.join(paths.SRC, 'server.js'),
   target: 'node',
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: `'production'`
+      }
+    })
+  ],
   output: {
     libraryTarget: 'commonjs-module',
     path: paths.DIST,
