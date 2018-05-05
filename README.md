@@ -6,7 +6,7 @@ Listing Description
 
 ### Related Projects
 
-- [Proxy Server](https://github.com/VandelayInc/jornelas_proxy)
+- [Proxy Server](https://github.com/VandelayInc/proxy-jornelas)
 - [Neighborhood](https://github.com/VandelayInc/neighborhood-map-service)
 - [Booking](https://github.com/VandelayInc/whitney-booking)
 - [Reviews](https://github.com/VandelayInc/reviews-service)
