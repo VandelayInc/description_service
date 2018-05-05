@@ -1,11 +1,12 @@
 # The description Service
 
-Airbnb component to emulate:
 Listing Description
+
+![alt text](https://i.imgur.com/Tia5ffa.png)
 
 ### Related Projects
 
-- [Rafa's proxy server](https://github.com/The-Untouchables/proxy-server-rafa)
+- [Proxy Server](https://github.com/The-Untouchables/proxy-server-rafa)
 - [Photo Carousel](https://github.com/The-Untouchables/photo-carousel-service)
 - [Gallery](https://github.com/The-Untouchables/) - update
 - [Neighborhood](https://github.com/The-Untouchables/neighborhood-map-service)
