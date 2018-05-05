@@ -6,13 +6,11 @@ Listing Description
 
 ### Related Projects
 
-- [Proxy Server](https://github.com/The-Untouchables/proxy-server-rafa)
-- [Photo Carousel](https://github.com/The-Untouchables/photo-carousel-service)
-- [Gallery](https://github.com/The-Untouchables/) - update
-- [Neighborhood](https://github.com/The-Untouchables/neighborhood-map-service)
-- [Booking](https://github.com/The-Untouchables/bookings-widget-service)
-- [Reviews](https://github.com/The-Untouchables/reviews-service)
-- [Similar Listings](https://github.com/The-Untouchables/similar-listings-service)
+- [Proxy Server](https://github.com/VandelayInc/jornelas_proxy)
+- [Neighborhood](https://github.com/VandelayInc/neighborhood-map-service)
+- [Booking](https://github.com/VandelayInc/whitney-booking)
+- [Reviews](https://github.com/VandelayInc/reviews-service)
+
 
 ### Usage
 
