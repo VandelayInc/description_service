@@ -2,7 +2,7 @@
 
 Listing Description
 
-![alt text](https://i.imgur.com/lfj8OpMl.png)
+![alt text](https://i.imgur.com/Tia5ffal.png)
 
 ### Related Projects
 
